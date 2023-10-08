@@ -52,10 +52,9 @@ exports.register = async (req, res) => {
   await User.findOne({ "mobno": mobno }).then(async (responses) => {
     if (responses) {
       return res.status(200).json({ message: 'Mobile Number already registered!' });
-    } else {
-      if (pwd.length < 6) {
-        return res.status(400).json({ message: "Password less than 6 characters" })
-      }
+    }
+    else {
+
       try {
 
         const date = new Date()

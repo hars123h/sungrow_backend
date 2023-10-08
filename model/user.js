@@ -11,12 +11,12 @@ const UserSchema = new Mongoose.Schema({
   },
   pwd: {
     type: String,
-    minlength: 6,
+    // minlength: 6,
     required: true,
   },
   name: {
     type: String,
-    require: true
+    // require: true
   },
   email: {
     type: String,
