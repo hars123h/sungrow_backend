@@ -828,7 +828,7 @@ exports.get_user = async (req, res) => {
 
 exports.get_amounts = async (req, res) => {
   try {
-    await Amount.findById('64f1dcc6e09302d2e502513a').then(response => {
+    await Amount.findById('63d3b7f558faef0089cb09cb').then(response => {
       res.status(200).json(response)
     })
 
@@ -950,7 +950,7 @@ exports.get_controllers = async (req, res) => {
 
 // exports.update_amounts = async (req, res) => {
 //   try {
-//     await Amount.updateOne({ _id: "64f1dcc6e09302d2e502513a" }, {
+//     await Amount.updateOne({ _id: "63d3b7f558faef0089cb09cb" }, {
 //       $set: {
 //         ...req.body
 //       }
@@ -1005,7 +1005,7 @@ exports.admin_login = async (req, res) => {
 // exports.update_plan_state = async (req, res) => {
 //   const { new_plan_state } = req.body;
 //   try {
-//     await Amount.updateOne({ _id: "64f1dcc6e09302d2e502513a" }, {
+//     await Amount.updateOne({ _id: "63d3b7f558faef0089cb09cb" }, {
 //       $set: {
 //         plan_state: new_plan_state
 //       }
