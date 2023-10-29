@@ -684,9 +684,9 @@ exports.invite_rewards = async (req, res) => {
 }
 
 exports.lvl1 = async (req, res) => {
-  const { _id } = req.body;
+  const { user_id } = req.body;
   try {
-    await User.findById(_id).then(user_data => {
+    await User.findById(user_id).then(user_data => {
       const level_1 = async () => {
         arr1 = await User.find({ "_id": { $in: user_data.directMember } }).clone()
         res.status(200).json({ level1: arr1 });
@@ -706,13 +706,8 @@ exports.lvl2 = async (req, res) => {
   try {
     await User.findById(user_id).then(user_data => {
       const level_2 = async () => {
-        arr1 = await User.find({ "_id": { $in: user_data.indirectMember } }, function (err, result) {
-          if (err) {
-            throw "something went wrong"
-          } else {
-            res.status(200).json({ level2: result });
-          }
-        }).clone().catch(function (err) { console.log(err) })
+        arr1 = await User.find({ "_id": { $in: user_data.indirectMember } }).clone()
+        res.status(200).json({ level2: arr1 });
       }
       level_2();
     });
@@ -727,13 +722,8 @@ exports.lvl3 = async (req, res) => {
   try {
     await User.findById(user_id).then(user_data => {
       const level_3 = async () => {
-        arr1 = await User.find({ "_id": { $in: user_data.in_indirectMember } }, function (err, result) {
-          if (err) {
-            throw "something went wrong"
-          } else {
-            res.status(200).json({ level3: result });
-          }
-        }).clone().catch(function (err) { console.log(err) })
+        arr1 = await User.find({ "_id": { $in: user_data.in_indirectMember } }).clone()
+        res.status(200).json({ level3: arr1 });
       }
       level_3();
     });
@@ -1275,12 +1265,4 @@ exports.task_reward = async (req, res) => {
   });
 
 }
-
-/*
-task_reward{
-  reward_no. :
-
-}
-
-*/
 
