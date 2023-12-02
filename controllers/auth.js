@@ -198,19 +198,19 @@ exports.purchase = async (req, res) => {
   if (investment >= 535) {
     vipValue = 1
   }
-  if (investment >= 10000) {
+  if (investment >= 1701) {
     vipValue = 2
   }
-  if (investment >= 30000) {
+  if (investment >= 5157) {
     vipValue = 3
   }
-  if (investment >= 70000) {
+  if (investment >= 11000) {
     vipValue = 4
   }
-  if (investment >= 200000) {
+  if (investment >= 21003) {
     vipValue = 5
   }
-  if (investment >= 500000) {
+  if (investment >= 50000) {
     vipValue = 6
   }
   if (investment >= 1000000) {
