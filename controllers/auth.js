@@ -493,6 +493,20 @@ exports.place_withdrawal = async (req, res) => {
 
   const data = req.body;
   console.log(data);
+  const { user_id } = req.body;
+  const userData = await User.findById(user_id);
+  const mylastWithdrawal = userData.lastWithdrawal;
+  const date = new Date()
+  date.setHours(0, 0, 0, 0)
+
+  console.log(mylastWithdrawal.toDateString() === date.toDateString());
+
+  if (mylastWithdrawal.toDateString() === date.toDateString()) {
+    return res.status(400).json({
+      message: 'you can withdraw once in a day.'
+    })
+  }
+
   try {
     Withdrawal.create(data)
       .then(async (response) => {
